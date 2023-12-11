@@ -4,10 +4,11 @@ from aiogram import Bot, Dispatcher
 from aiogram.enums import ParseMode
 from aiogram.filters import Command
 from aiogram.types import Message
+from aiogram import types
 
 import random
 
-TOKEN = ""
+TOKEN = "6768144687:AAFHY5y4o4Uyjr7aeNKZD78kA9jNpNuYKyY"
 
 logging.basicConfig(level=logging.INFO)
 
@@ -36,6 +37,16 @@ async def image(message: Message):
 
     await message.answer_photo(photo=f"{s}",
                                caption=f"{message.from_user.first_name}")
+
+
+@dp.message(Command("button"))
+async def button(message: Message):
+    kb = [
+        [types.KeyboardButton(text="Qish")],
+        [types.KeyboardButton(text="Yoz")]
+    ]
+    keyboard = types.ReplyKeyboardMarkup(keyboard=kb, resize_keyboard=True)
+    await message.answer("button choice", reply_markup=keyboard)
 
 
 async def main() -> None:
