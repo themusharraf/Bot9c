@@ -7,7 +7,7 @@ from aiogram.types import Message
 
 import random
 
-TOKEN = "6768144687:AAFHY5y4o4Uyjr7aeNKZD78kA9jNpNuYKyY"
+TOKEN = ""
 
 logging.basicConfig(level=logging.INFO)
 
