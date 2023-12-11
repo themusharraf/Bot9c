@@ -1,6 +1,6 @@
 import asyncio
 import logging
-from aiogram import Bot, Dispatcher
+from aiogram import Bot, Dispatcher, F
 from aiogram.enums import ParseMode
 from aiogram.filters import Command
 from aiogram.types import Message
@@ -47,6 +47,10 @@ async def button(message: Message):
     ]
     keyboard = types.ReplyKeyboardMarkup(keyboard=kb, resize_keyboard=True)
     await message.answer("button choice", reply_markup=keyboard)
+
+    @dp.message(F.text == "Qish")
+    async def qish(message: Message):
+        await message.answer_photo(photo="https://images.app.goo.gl/45uebf8ccm8fJnRv9", caption="Qish rasmi")
 
 
 async def main() -> None:
