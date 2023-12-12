@@ -42,15 +42,41 @@ async def image(message: Message):
 @dp.message(Command("button"))
 async def button(message: Message):
     kb = [
-        [types.KeyboardButton(text="Qish")],
-        [types.KeyboardButton(text="Yoz")]
+        [
+            types.KeyboardButton(text="Qish"),
+            types.KeyboardButton(text="Yoz"),
+            types.KeyboardButton(text="Bahor"),
+            types.KeyboardButton(text="Kuz")
+
+        ]
     ]
     keyboard = types.ReplyKeyboardMarkup(keyboard=kb, resize_keyboard=True)
     await message.answer("button choice", reply_markup=keyboard)
 
     @dp.message(F.text == "Qish")
     async def qish(message: Message):
-        await message.answer_photo(photo="https://images.app.goo.gl/45uebf8ccm8fJnRv9", caption="Qish rasmi")
+        await message.answer_photo(photo="https://images.app.goo.gl/45uebf8ccm8fJnRv9",
+                                   caption="Qish rasmi")
+
+    @dp.message(F.text == "Yoz")
+    async def qish(message: Message):
+        await message.answer_photo(photo="https://images.app.goo.gl/bQvK746RyhFMchNa6",
+                                   caption="Yoz rasmi")
+
+    @dp.message(F.text == "Bahor")
+    async def qish(message: Message):
+        await message.answer_photo(photo="https://images.app.goo.gl/seeT6fkpDKYBVTXS7",
+                                   caption="Bahor rasmi")
+
+    @dp.message(F.text == "Kuz")
+    async def qish(message: Message):
+        await message.answer_photo(photo="https://images.app.goo.gl/yPCdZqbjDYS2xuSo7", caption="Kuz rasmi")
+
+
+@dp.message(Command("music"))
+async def audio(message: Message):
+    await message.answer_audio(audio="https://dl.uzxit.net/2023-mp3/sakit-samedov-love-disco_(uzxit.net).mp3",
+                               caption="🎸 @bot9c_bot bu bot sizga music lar yuklab beradi")
 
 
 async def main() -> None:
