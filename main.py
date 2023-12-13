@@ -79,6 +79,19 @@ async def audio(message: Message):
                                caption="🎸 @bot9c_bot bu bot sizga music lar yuklab beradi")
 
 
+@dp.message(F.text == "info")
+async def info(message: Message):
+    kb = [
+        [
+            types.KeyboardButton(text="Contact", request_contact=True),
+            types.KeyboardButton(text="Location", request_location=True),
+
+        ]
+    ]
+    keyboard = types.ReplyKeyboardMarkup(keyboard=kb, resize_keyboard=True)
+    await message.answer("send location or contact", reply_markup=keyboard)
+
+
 async def main() -> None:
     bot = Bot(TOKEN, parse_mode=ParseMode.HTML)
     await dp.start_polling(bot)
