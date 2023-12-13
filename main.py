@@ -8,7 +8,9 @@ from aiogram import types
 
 import random
 
-TOKEN = ""
+from aiogram.utils.keyboard import InlineKeyboardBuilder
+
+TOKEN = "6768144687:AAFHY5y4o4Uyjr7aeNKZD78kA9jNpNuYKyY"
 
 logging.basicConfig(level=logging.INFO)
 
@@ -92,7 +94,15 @@ async def info(message: Message):
     await message.answer("send location or contact", reply_markup=keyboard)
 
 
+@dp.message(Command("info"))
+async def cmd_info(message: Message):
+    builder = InlineKeyboardBuilder()
+    builder.add(types.InlineKeyboardButton(text="Aiogram docs", url="https://docs.aiogram.dev/en/latest/"))
+    await message.answer("Link Enter", reply_markup=builder.as_markup())
+
+
 async def main() -> None:
+
     bot = Bot(TOKEN, parse_mode=ParseMode.HTML)
     await dp.start_polling(bot)
 
