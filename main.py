@@ -6,7 +6,7 @@ from aiogram.filters import Command
 from aiogram.types import Message
 from keyboards import *
 
-TOKEN = ""
+TOKEN = "6738464321:AAHwG4r4Jra4WZUGVxyvGs1pwmBRB_B48q0"
 
 logging.basicConfig(level=logging.INFO)
 
